@@ -1,0 +1,65 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+out/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional yarn cache directory
+.yarn/
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Mac system files
+*.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# Coverage directory used by testing tools
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+*.swp
+*.swo
+
+# React Native
+.expo/
+
+# Next.js
+.next/
+out/
+
+# Vite
+.vite/
