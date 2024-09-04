@@ -11,7 +11,14 @@ import About from "./components/About"
 import NLP from "./components/NLP"
 import Sentiment from "./components/Sentiment"
 import NLGillustration from "./components/NLGillustration"
+import DiabetesPrediction from "./components/DiabetesPrediction "
+import Payment from "./components/Payment"
+import LoginasOwner from "./components/LoginasOwner"
+import { useState } from "react"
+import Dashboard from "./components/Dashboard"
 function App() {
+
+  const [email,setEmailglobal]=useState('')
   return (
     <>
       <BrowserRouter>
@@ -23,11 +30,18 @@ function App() {
           <Route path="service" element={<Services />} />
           <Route path="contact" element={<Contact />} />
           <Route path="wallet" element={<Wallet />} />
-          <Route path="setting" element={<Setting />} />
-          <Route path="signup" element={<Login />} />
+          <Route path="setting" element={<Setting email={email} />} />
+          <Route
+            path="signupasuser"
+            element={<Login setEmailglobal={setEmailglobal} />}
+          />
+          <Route path="signupasowner" element={<LoginasOwner />} />
           <Route path="nlp" element={<NLP />} />
           <Route path="sentimentanalysis" element={<Sentiment />} />
           <Route path="nlg" element={<NLGillustration />} />
+          <Route path="trydiabetispredict" element={<DiabetesPrediction />} />
+          <Route path="payment" element={<Payment />} />
+          <Route path="dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
     </>

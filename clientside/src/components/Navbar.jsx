@@ -3,13 +3,14 @@ import logo from "../images/Logo.jpeg";
 import { useNavigate, useLocation } from "react-router-dom";
 import { WalletContext } from "./WalletContext";
 import { useContext } from "react";
+import pic from '../images/pic.jpg'
 
 const Navbar = () => {
   const { walletAddress } = useContext(WalletContext);
   const navigate = useNavigate();
   const location = useLocation(); // To get the current location path
 
-  const auth = 0;
+  const auth = localStorage.getItem('user');
 
   const displayAddress = walletAddress
     ? `${walletAddress.substring(0, 6)}...${walletAddress.substring(
@@ -39,15 +40,25 @@ const Navbar = () => {
             </span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {auth === 1 ? (
-              <button
-                onClick={() => navigate("/signup")}
-                style={{ width: "120px", padding: "0.5rem" }}
-                type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Signup
-              </button>
+            {!auth ? (
+              <div>
+                <button
+                  onClick={() => navigate("/signupasuser")}
+                  style={{ width: "120px", padding: "0.5rem" }}
+                  type="button"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Login as user
+                </button>
+                <button
+                  onClick={() => navigate("/signupasowner")}
+                  style={{marginLeft:'0.3rem'}}
+                  type="button"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Login as owner
+                </button>
+              </div>
             ) : (
               <>
                 <button
@@ -60,7 +71,7 @@ const Navbar = () => {
                 >
                   <span className="sr-only">Open user menu</span>
                   <div className="w-10 h-10 flex items-center justify-center bg-gray-600 text-white rounded-full">
-                    {/* Display user initial or avatar */}
+                    <img src={pic} alt="" style={{borderRadius:'50%'}}/>
                   </div>
                 </button>
                 <div
@@ -68,12 +79,17 @@ const Navbar = () => {
                   id="user-dropdown"
                 >
                   <div className="px-4 py-3">
-                    {/* Display user name and email */}
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {JSON.parse(auth).name}
+                    </span>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      {JSON.parse(auth).email}
+                    </div>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
                     <li>
                       <a
-                        href="#"
+                        href="dashboard"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                       >
                         Dashboard

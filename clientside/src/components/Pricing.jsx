@@ -1,21 +1,23 @@
-import React from 'react'
+import React from "react";
 
 const Pricing = () => {
   return (
     <>
       <section className="bg-black dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-          <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12" style={{marginTop:'3rem'}}>
+          <div
+            className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12"
+            style={{ marginTop: "3rem" }}
+          >
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Designed for business teams like yours
+              Tailored for AI professionals like you.
             </h2>
             <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
+              Empowering developers and businesses to seamlessly trade,
+              innovate, and collaborate on cutting-edge AI solutions.
             </p>
           </div>
-          <div
-            className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
             {/* Pricing Card */}
             <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white ">
               <h3 className="mb-4 text-2xl font-semibold">Starter</h3>
@@ -23,7 +25,7 @@ const Pricing = () => {
                 Best option for personal use &amp; for your next project.
               </p>
               <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">$29</span>
+                <span className="mr-2 text-5xl font-extrabold">$2</span>
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
               {/* List */}
@@ -130,7 +132,7 @@ const Pricing = () => {
                 Relevant for multiple users, extended &amp; premium support.
               </p>
               <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">$99</span>
+                <span className="mr-2 text-5xl font-extrabold">$5</span>
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
               {/* List */}
@@ -236,7 +238,7 @@ const Pricing = () => {
                 Best for large scale uses and extended redistribution rights.
               </p>
               <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">$499</span>
+                <span className="mr-2 text-5xl font-extrabold">$10</span>
                 <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
               {/* List */}
@@ -340,6 +342,6 @@ const Pricing = () => {
       </section>
     </>
   );
-}
+};
 
-export default Pricing
+export default Pricing;

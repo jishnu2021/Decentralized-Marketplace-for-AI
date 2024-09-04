@@ -1,76 +1,76 @@
-import React, { useState,useEffect } from 'react'
-import '../style/login.css';
-import img from "../images/hero.jpeg"
-import {useNavigate} from 'react-router-dom'
-const Login = (setEmailglobal) => {
+import React, { useState, useEffect } from "react";
+import "../style/login.css";
+import img from "../images/hero.jpeg";
+import { useNavigate } from "react-router-dom";
+const LoginasOwner = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    useEffect(()=>{
-      const auth = localStorage.getItem("user");
-      if(auth){
-        navigate("/")
-        }
-        
-    })
-
-    const [name , setName]= useState("");
-    const [email , setEmail]= useState("");
-    const [password , setPassword]= useState("");
-
-    const handleLogin=async(e)=>{
-        e.preventDefault();
-        try{
-          const result = await fetch("http://localhost:5000/userlogin", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-          });
-          const data = await result.json();
-          console.log(data);
-          if(data){
-            localStorage.setItem("user",JSON.stringify(data));
-            setEmailglobal(email);
-            navigate("/");
-            }else{
-              alert("Enter the correct details!!");
-            }
-        }catch(error){
-            alert("Enter the correct details!!")
-        }
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
     }
+  });
 
-        const handlesignup = async (e) => {
-          e.preventDefault();
-          try {
-            const response = await fetch("http://localhost:5000/userregister", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name, email, password }),
-            });
-            const data = await response.json();
-            console.log(data);
-            localStorage.setItem("user", JSON.stringify(data));
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-            if (response) {
-              setEmailglobal(email);
-              navigate("/");
-            } else {
-              console.error("Signup failed:", data);
-            }
-          } catch (error) {
-            console.error("Error during signup:", error);
-          }
-        };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await fetch("http://localhost:5000/ownerLogin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await result.json();
+      console.log(data);
+      if (data) {
+        localStorage.setItem("user", JSON.stringify(data));
+        navigate("/");
+      } else {
+        alert("Enter the correct details!!");
+      }
+    } catch (error) {
+      alert("Enter the correct details!!");
+    }
+  };
+
+  const handlesignup = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/ownerregister", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      localStorage.setItem("user", JSON.stringify(data));
+
+      if (response) {
+        navigate("/");
+      } else {
+        console.error("Signup failed:", data);
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+    }
+  };
 
   return (
     <>
       <div className="panel">
-        <div className="container" style={{ maxWidth: "980px" , padding:'40px 30px' }}>
+        <div
+          className="container"
+          style={{ maxWidth: "980px", padding: "40px 30px" }}
+        >
           <input type="checkbox" id="flip" />
           <div className="cover">
             <div className="front">
@@ -83,7 +83,7 @@ const Login = (setEmailglobal) => {
           <div className="forms">
             <div className="form-content">
               <div className="login-form">
-                <div className="title">Login as User</div>
+                <div className="title">Login as Owner</div>
                 <form action="#">
                   <div className="input-boxes">
                     <div className="input-box">
@@ -179,6 +179,6 @@ const Login = (setEmailglobal) => {
       </div>
     </>
   );
-}
+};
 
-export default Login
+export default LoginasOwner;

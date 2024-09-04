@@ -1,29 +1,31 @@
 import React from "react";
-
+import ml from '../images/ml.jpeg'
+import dl from '../images/DL.jpeg'
+import cv from '../images/cv.png'
 const serviceData = [
   {
-    title: "Natural Language Processing (NLP):",
+    title: "Machine Learning",
     description:
-      "The AI product utilizes advanced NLP algorithms to understand and interpret human language, enabling it to accurately process and analyze text-based inputs.",
-    imageUrl: "https://images.unsplash.com/photo-1569144157591-c60f3f82f137",
+      "Machine learning is a branch of artificial intelligence (AI) that allows computers to learn and improve from data without being explicitly programmed. It uses algorithms to analyze patterns in data and generate models for specific tasks",
+    imageUrl: ml,
     imageAlt: "NLP illustration",
     href: "/nlp",
     reverse: false,
   },
   {
-    title: "Sentiment Analysis:",
+    title: "Deep Learning",
     description:
-      "The product has built-in sentiment analysis capabilities, allowing it to determine the sentiment (positive, negative, or neutral) expressed in text or customer feedback.",
-    imageUrl: "https://images.unsplash.com/photo-1599134842279-fe807d23316e",
+      "Deep learning is a method in artificial intelligence (AI) that teaches computers to process data in a way that is inspired by the human brain.",
+    imageUrl: dl,
     imageAlt: "Sentiment analysis illustration",
     href: "/sentimentanalysis",
     reverse: true,
   },
   {
-    title: "Natural Language Generation (NLG):",
+    title: "Computer Vision",
     description:
-      "The AI product can generate human-like written content, summaries, or reports based on structured data or analysis results.",
-    imageUrl: "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e",
+      "Computer vision is a field of artificial intelligence (AI) that allows computers to interpret and analyze visual data, such as images and videos, to derive meaningful information",
+    imageUrl: cv,
     imageAlt: "NLG illustration",
     href: "/nlg",
     reverse: false,
